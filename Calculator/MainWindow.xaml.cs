@@ -27,6 +27,13 @@ namespace Calculator
             divisionButton.Click += OperationOnClick;
 
             equalsButton.Click += EqualsButtonOnClick;
+
+            periodButton.Click += PeriodButtonOnClick;
+        }
+
+        private void PeriodButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            UpdateLabelValuePeriod();
         }
 
         private void EqualsButtonOnClick(object sender, RoutedEventArgs e)
@@ -155,6 +162,12 @@ namespace Calculator
         {
             ResultLabel.Content = number;
             double.TryParse(number, out currentNumber);
+        }
+
+        private void UpdateLabelValuePeriod()
+        {
+            if (!ResultLabel.Content.ToString().Contains("."))
+                ResultLabel.Content += ".";
         }
 
         private enum Operations
